@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberSafe U - Cybersecurity Awareness Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Decorative layers (filled by script.js) -->
+  <div id="bubble-layer"></div>
+  <div id="fish-layer"></div>
+  <div id="cursor-glow"></div>
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-icon">🐠</span>
+      <div>
+        <h1>CyberSafe U</h1>
+        <p>Cybersecurity Awareness</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-link active" data-page="dashboard">🏠 Dashboard</button>
+      <button class="nav-link" data-page="tests">📝 Survey Tests</button>
+      <button class="nav-link" data-page="results">📊 Survey Results</button>
+      <button class="nav-link" data-page="students">👩‍🎓 Student Records</button>
+      <button class="nav-link" data-page="analytics">📈 Analytics &amp; Reports</button>
+      <button class="nav-link" data-page="logs">🕒 Activity Logs</button>
+      <button class="nav-link" data-page="map">🗺️ Campus Map</button>
+      <button class="nav-link" data-page="settings">⚙️ Settings</button>
+    </nav>
+
+    <p class="nav-title">UNIVERSITY OFFICES &amp; COLLEGES</p>
+    <nav class="sidebar-nav office-nav">
+      <button class="nav-link" data-office="CIC">CIC - College of Information and Computing</button>
+      <button class="nav-link" data-office="COE">COE - College of Engineering</button>
+      <button class="nav-link" data-office="CED">CED - College of Education</button>
+      <button class="nav-link" data-office="CAS">CAS - College of Arts and Sciences</button>
+      <button class="nav-link" data-office="CBA">CBA - College of Business Administration</button>
+      <button class="nav-link" data-office="REG">REG - Registrar</button>
+      <button class="nav-link" data-office="FIN">FIN - Finance and Accounting</button>
+      <button class="nav-link" data-office="HRM">HRM - Human Resource Management</button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button class="nav-link" id="logout-button">🚪 Log Out</button>
+      <p class="sidebar-university">University of Southeastern Philippines</p>
+      <p class="sidebar-campus">Obrero Campus</p>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN AREA ===================== -->
+  <main class="main-area">
+
+    <!-- Top header -->
+    <header class="topbar">
+      <div>
+        <h2>CyberSafe U</h2>
+        <p>Cybersecurity Awareness Among Students</p>
+      </div>
+      <div class="topbar-right">
+        <span class="badge badge-simulated">SIMULATED DATA</span>
+        <span class="topbar-date" id="current-date"></span>
+        <div class="profile">
+          <span class="profile-avatar">A</span>
+          <span>Administrator</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== 1. DASHBOARD ===================== -->
+    <section id="page-dashboard" class="page active">
+
+      <div class="welcome-banner card">
+        <div>
+          <h3>Welcome to CyberSafe U 🐠</h3>
+          <p>
+            A cybersecurity awareness dashboard for USeP Obrero Campus. It studies the answers of
+            <span class="total-participants"></span> simulated participants from 8 university
+            offices and colleges to find which cybersecurity topic needs the most attention.
+          </p>
+          <div class="button-row">
+            <button class="btn" data-goto="analytics">View Analytics</button>
+            <button class="btn btn-light" data-goto="tests">Explore Survey Tests</button>
+          </div>
+        </div>
+        <span class="badge badge-simulated">SIMULATED DATA</span>
+      </div>
+
+      <div class="summary-grid" id="dashboard-cards"></div>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>Cybersecurity Survey Tests Overview</h3>
+          <div id="dashboard-tests"></div>
+        </div>
+        <div class="card">
+          <h3>Topic Performance Comparison</h3>
+          <p class="small-text">The four original proposal topics (correct answer %)</p>
+          <div id="dashboard-topic-chart"></div>
+        </div>
+      </div>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>Performance Summary</h3>
+          <div id="dashboard-summary"></div>
+        </div>
+        <div class="card" id="recent-activities-card">
+          <h3>Recent Activities</h3>
+          <ul class="activity-list" id="dashboard-activities"></ul>
+          <button class="btn btn-light" data-goto="logs">View All Activity Logs</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Quick Access</h3>
+        <div class="quick-grid">
+          <button class="quick-button" data-goto="results">📊 Survey Results</button>
+          <button class="quick-button" data-goto="students">👩‍🎓 Student Records</button>
+          <button class="quick-button" data-goto="analytics">📈 Analytics &amp; Reports</button>
+          <button class="quick-button" data-goto="recommendations">💡 Recommendations</button>
+          <button class="quick-button" data-goto="map">🗺️ Campus Map</button>
+          <button class="quick-button" data-goto="settings">⚙️ Settings</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 2. SURVEY TESTS ===================== -->
+    <section id="page-tests" class="page">
+      <div class="page-title">
+        <h3>Survey Tests</h3>
+        <p>10 cybersecurity survey modules. The four tests marked <strong>Proposal Topic</strong>
+           are the main research topics. The other six are supplementary tests.</p>
+      </div>
+      <div class="tests-grid" id="tests-grid"></div>
+    </section>
+
+    <!-- ===================== 3. SURVEY RESULTS ===================== -->
+    <section id="page-results" class="page">
+      <div class="page-title">
+        <h3>Survey Results</h3>
+        <p class="simulated-note">SIMULATED DATA - not actual student responses.</p>
+      </div>
+
+      <div class="filter-bar card">
+        <label>Survey Test
+          <select id="filter-test"></select>
+        </label>
+        <label>College / Office
+          <select id="filter-unit"></select>
+        </label>
+        <label>Survey Status
+          <select id="filter-status">
+            <option value="all">All Statuses</option>
+            <option value="proposal">Original Proposal Topics</option>
+            <option value="supplementary">Supplementary Tests</option>
+          </select>
+        </label>
+        <button class="btn btn-light" id="reset-filters">Reset Filters</button>
+      </div>
+      <p class="small-text" id="results-note"></p>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>A. Correct Answer Percentage by Test</h3>
+          <div id="results-bar-chart"></div>
+        </div>
+        <div class="card">
+          <h3>B. Correct vs Incorrect</h3>
+          <div id="results-doughnut"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>C. Topic Performance Summary</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th><th>Survey Test</th><th>Total Answers</th><th>Correct</th>
+                <th>Incorrect</th><th>Correct %</th><th>Incorrect %</th>
+              </tr>
+            </thead>
+            <tbody id="results-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two-columns">
+        <div class="card lowest-card">
+          <h3>D. Lowest Performing Topic</h3>
+          <div id="results-lowest"></div>
+        </div>
+        <div class="card">
+          <h3>E. Questions with Most Incorrect Answers</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Question ID</th><th>Survey Test</th><th>Question</th><th>% Incorrect</th></tr>
+              </thead>
+              <tbody id="results-questions-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 4. STUDENT RECORDS + DATASET RECORDS ===================== -->
+    <section id="page-students" class="page">
+      <div class="page-title">
+        <h3>Student Records</h3>
+        <p class="simulated-note">SIMULATED DATA - anonymous IDs only, no real students.</p>
+      </div>
+
+      <!-- A. Student records -->
+      <div class="card">
+        <h3>A. Student Records (<span class="total-participants"></span> participants)</h3>
+        <div class="filter-row">
+          <input type="text" id="student-search" placeholder="Search by Student ID (example: 2026-01245)">
+          <select id="student-unit"></select>
+          <select id="student-per-page">
+            <option value="10">10 per page</option>
+            <option value="25">25 per page</option>
+            <option value="50">50 per page</option>
+            <option value="100">100 per page</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-table="students" data-sort="studentId">Student ID</th>
+                <th data-table="students" data-sort="unit">College / Office</th>
+                <th data-table="students" data-sort="totalTests">Total Tests</th>
+                <th data-table="students" data-sort="correct">Total Correct Answers</th>
+                <th data-table="students" data-sort="incorrect">Total Incorrect Answers</th>
+                <th data-table="students" data-sort="correct">Overall Score</th>
+                <th data-table="students" data-sort="percent">Percentage Score</th>
+                <th data-table="students" data-sort="status">Status</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="student-table-body"></tbody>
+          </table>
+        </div>
+        <div class="pager">
+          <span id="student-count"></span>
+          <div class="pager-buttons">
+            <button class="btn-small" id="student-prev">Previous</button>
+            <span id="student-page"></span>
+            <button class="btn-small" id="student-next">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- B. Dataset records -->
+      <div class="card">
+        <h3>B. Dataset Records (individual answers)</h3>
+        <p class="small-text" id="record-total"></p>
+        <div class="filter-row">
+          <input type="text" id="record-search-id" placeholder="Search by Student ID">
+          <input type="text" id="record-search-question" placeholder="Search by Question">
+          <select id="record-unit"></select>
+          <select id="record-test"></select>
+          <select id="record-result">
+            <option value="all">Correct and Incorrect</option>
+            <option value="Correct">Correct only</option>
+            <option value="Incorrect">Incorrect only</option>
+          </select>
+          <select id="record-per-page">
+            <option value="10">10 per page</option>
+            <option value="25">25 per page</option>
+            <option value="50">50 per page</option>
+            <option value="100">100 per page</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-table="records" data-sort="recordId">Record ID</th>
+                <th data-table="records" data-sort="studentId">Student ID</th>
+                <th data-table="records" data-sort="unit">College / Office</th>
+                <th data-table="records" data-sort="testId">Survey Test</th>
+                <th data-table="records" data-sort="questionId">Question ID</th>
+                <th data-table="records" data-sort="question">Question</th>
+                <th data-table="records" data-sort="result">Answer Correctness</th>
+                <th data-table="records" data-sort="score">Score</th>
+                <th>Student</th>
+              </tr>
+            </thead>
+            <tbody id="record-table-body"></tbody>
+          </table>
+        </div>
+        <div class="pager">
+          <span id="record-count"></span>
+          <div class="pager-buttons">
+            <button class="btn-small" id="record-prev">Previous</button>
+            <span id="record-page"></span>
+            <button class="btn-small" id="record-next">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 5. ANALYTICS & REPORTS ===================== -->
+    <section id="page-analytics" class="page">
+      <div class="page-title">
+        <h3>Analytics &amp; Reports</h3>
+        <p class="simulated-note">SIMULATED DATA - all numbers come from the same dataset.</p>
+        <div class="button-row no-print">
+          <button class="btn" id="print-report">🖨️ Print / Save as PDF</button>
+          <button class="btn btn-light" data-goto="recommendations">View Recommendations</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>1. Overall Cybersecurity Awareness</h3>
+        <div id="an-overall"></div>
+      </div>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>2. Topic Performance Comparison</h3>
+          <div id="an-topic-chart"></div>
+        </div>
+        <div class="card">
+          <h3>3. Correct vs Incorrect Distribution</h3>
+          <div id="an-doughnut"></div>
+        </div>
+      </div>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>4. Student Score Distribution</h3>
+          <p class="small-text">Number of students in each percentage range</p>
+          <div id="an-distribution"></div>
+        </div>
+        <div class="card">
+          <h3>5. Average Quiz Scores</h3>
+          <p class="small-text">Average score of a student in each test (out of 10)</p>
+          <div id="an-averages"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>6. Highest and Lowest Scores</h3>
+        <div id="an-extremes"></div>
+      </div>
+
+      <div class="card">
+        <h3>7. Question-Level Analysis</h3>
+        <div id="an-questions"></div>
+      </div>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>8. Topic Rankings</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Rank</th><th>Survey Test</th><th>Type</th><th>Correct %</th></tr></thead>
+              <tbody id="an-rankings"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <h3>9. Knowledge Gaps</h3>
+          <div id="an-gaps"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>10. Performance by College / Office</h3>
+        <div class="two-columns">
+          <div id="an-units-chart"></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Unit</th><th>Participants</th><th>Correct</th><th>Incorrect</th><th>Correct %</th></tr></thead>
+              <tbody id="an-units-table"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>11. Statistical Summary</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Measure (student percentage scores)</th><th>Value</th></tr></thead>
+            <tbody id="an-stats"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card no-print">
+        <h3>12. Printable Reports</h3>
+        <p>Click the button to open the print window of your browser. Choose
+           <strong>Save as PDF</strong> as the printer to save this report.</p>
+        <button class="btn" id="print-report-bottom">🖨️ Print / Save as PDF</button>
+      </div>
+    </section>
+
+    <!-- ===================== 6. ACTIVITY LOGS ===================== -->
+    <section id="page-logs" class="page">
+      <div class="page-title">
+        <h3>Activity Logs</h3>
+        <p class="simulated-note">SIMULATED DATA - sample activity records only.</p>
+      </div>
+      <div class="card">
+        <div class="filter-row">
+          <input type="text" id="log-search" placeholder="Search activity...">
+          <select id="log-type"></select>
+          <select id="log-status">
+            <option value="all">All Statuses</option>
+            <option value="Completed">Completed</option>
+            <option value="In Review">In Review</option>
+          </select>
+        </div>
+        <p class="small-text" id="log-count"></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Activity ID</th><th>Activity Description</th><th>Activity Type</th><th>Date</th><th>Time</th><th>Status</th></tr>
+            </thead>
+            <tbody id="log-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 7. CAMPUS MAP ===================== -->
+    <section id="page-map" class="page">
+      <div class="page-title">
+        <h3>USeP Obrero Campus Map</h3>
+        <p>Official campus map. Use the zoom buttons or open the full map view.</p>
+      </div>
+
+      <div class="two-columns map-layout">
+        <div class="card">
+          <div class="map-controls">
+            <button class="btn-small" id="zoom-out">− Zoom Out</button>
+            <button class="btn-small" id="zoom-in">+ Zoom In</button>
+            <button class="btn-small" id="zoom-reset">Reset</button>
+            <button class="btn" id="full-map-button">Full Map View</button>
+          </div>
+          <div class="map-box" id="map-box">
+            <img id="map-image" alt="USeP Obrero Campus Map"
+                 src="https://drive.google.com/thumbnail?id=1rD7ejozpbWD_wSFJvTaQ-gH8_iwNZiVE&sz=w2000"
+                 onerror="showMapFallback()">
+          </div>
+          <p class="small-text" id="map-fallback">
+            If the map image does not appear, open it with the buttons below.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-light" target="_blank" rel="noopener"
+               href="https://drive.google.com/file/d/1rD7ejozpbWD_wSFJvTaQ-gH8_iwNZiVE/view">Open Official Map</a>
+            <a class="btn btn-light" target="_blank" rel="noopener"
+               href="https://sustainability.usep.edu.ph/campus-obrero">USeP Obrero Campus Page</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Building / Office Markers</h3>
+          <p class="small-text">Select a marker to see its information. Markers are not pinned on the
+             image because exact building locations are not verified here.</p>
+          <div class="marker-row" id="map-markers"></div>
+          <div class="info-panel" id="map-info">Select a college or office to see its information.</div>
+          <h3>Offices &amp; Colleges Directory</h3>
+          <ul class="directory-list" id="map-directory"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 8. SETTINGS ===================== -->
+    <section id="page-settings" class="page">
+      <div class="page-title">
+        <h3>Settings</h3>
+      </div>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>Project Information</h3>
+          <table class="info-table">
+            <tr><td>Group Name</td><td>SuperMatao</td></tr>
+            <tr><td>Members</td><td>
+              1. Ian, Arecto<br>
+              2. John, Basco<br>
+              3. Mohammad, Matao<br>
+              4. Racho, Wesley B.</td></tr>
+            <tr><td>Project Title</td><td>Cybersecurity Awareness Among Students of USeP Obrero Campus</td></tr>
+            <tr><td>Information Security Domain</td><td>Security Awareness</td></tr>
+            <tr><td>Target Respondents</td><td><span class="total-participants"></span> simulated participants from USeP Obrero Campus (30 per unit)</td></tr>
+            <tr><td>Main Topics</td><td>Phishing, Password Security, Online Scams (Social Engineering), Two-Factor Authentication</td></tr>
+            <tr><td>Research Question</td><td>Which cybersecurity topic has the lowest percentage of correct answers among students of USeP Obrero Campus?</td></tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Dashboard Preferences</h3>
+          <label class="setting-row">
+            <span>Show Recent Activities on the Dashboard</span>
+            <input type="checkbox" id="setting-activities">
+          </label>
+          <label class="setting-row">
+            <span>Default rows per page (tables)</span>
+            <select id="setting-rows">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </label>
+
+          <h3>Animation Controls</h3>
+          <label class="setting-row">
+            <span>Floating fish 🐟</span>
+            <input type="checkbox" id="setting-fish">
+          </label>
+          <label class="setting-row">
+            <span>Floating bubbles 🫧</span>
+            <input type="checkbox" id="setting-bubbles">
+          </label>
+          <label class="setting-row">
+            <span>Mouse effects (cursor glow and click bubbles)</span>
+            <input type="checkbox" id="setting-mouse">
+          </label>
+
+          <h3>Display Settings</h3>
+          <label class="setting-row">
+            <span>Larger text</span>
+            <input type="checkbox" id="setting-large-text">
+          </label>
+          <label class="setting-row">
+            <span>Compact cards</span>
+            <input type="checkbox" id="setting-compact">
+          </label>
+        </div>
+      </div>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>Dataset Information</h3>
+          <table class="info-table" id="dataset-info"></table>
+        </div>
+        <div class="card">
+          <h3>About the Project</h3>
+          <p>CyberSafe U is a student project about security awareness. It compares how well
+             students answer questions about phishing, password security, online scams and
+             two-factor authentication.</p>
+          <p>The data in this dashboard is <strong>SIMULATED</strong>. The Student IDs are made up
+             and the answers were generated by the program. They are not actual student responses.</p>
+          <p>The six supplementary tests (privacy, malware, social media, behavior, and
+             general knowledge) are extra modules. The main research analysis stays focused on the
+             four original proposal topics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RECOMMENDATIONS ===================== -->
+    <section id="page-recommendations" class="page">
+      <div class="page-title">
+        <h3>Recommendations</h3>
+        <p class="simulated-note">Based on the SIMULATED results. They update when you change the filter.</p>
+      </div>
+
+      <div class="filter-bar card">
+        <label>College / Office
+          <select id="rec-unit"></select>
+        </label>
+      </div>
+      <p class="small-text" id="rec-note"></p>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>Lowest-Performing Cybersecurity Topics</h3>
+          <div id="rec-lowest"></div>
+        </div>
+        <div class="card">
+          <h3>Topics with the Highest Incorrect-Answer Rates</h3>
+          <div id="rec-incorrect"></div>
+        </div>
+      </div>
+
+      <div class="three-columns">
+        <div class="card">
+          <h3>📚 Suggested Cybersecurity Lessons</h3>
+          <div id="rec-lessons"></div>
+        </div>
+        <div class="card">
+          <h3>🧩 Suggested Practical Activities</h3>
+          <div id="rec-activities"></div>
+        </div>
+        <div class="card">
+          <h3>📣 Suggested Awareness Campaigns</h3>
+          <div id="rec-campaigns"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== OFFICE / COLLEGE PAGE ===================== -->
+    <section id="page-office" class="page">
+      <div class="page-title">
+        <h3 id="office-title"></h3>
+        <p id="office-subtitle"></p>
+        <p class="simulated-note">SIMULATED DATA - 30 simulated participants in this unit.</p>
+      </div>
+
+      <div class="summary-grid" id="office-cards"></div>
+
+      <div class="two-columns">
+        <div class="card">
+          <h3>Topic Performance in this Unit</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>No.</th><th>Survey Test</th><th>Correct</th><th>Incorrect</th><th>Correct %</th></tr></thead>
+              <tbody id="office-topic-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Participants in this Unit</h3>
+          <div class="table-wrap tall-table">
+            <table>
+              <thead><tr><th>Student ID</th><th>Score</th><th>%</th><th>Status</th><th>Details</th></tr></thead>
+              <tbody id="office-student-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== POP-UP WINDOWS ===================== -->
+  <div class="modal" id="student-modal">
+    <div class="modal-box card">
+      <button class="modal-close" id="close-student-modal">✕</button>
+      <div id="student-modal-body"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="map-modal">
+    <div class="modal-box modal-wide card">
+      <button class="modal-close" id="close-map-modal">✕</button>
+      <h3>USeP Obrero Campus Map - Full View</h3>
+      <div class="map-box map-box-full">
+        <img id="map-modal-image" alt="USeP Obrero Campus Map (full view)">
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
