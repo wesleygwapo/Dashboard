@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CyberSafe U - Cybersecurity Awareness Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="matao.css">
 </head>
 <body>
 
@@ -15,45 +15,176 @@
   <div id="fish-layer"></div>
   <div id="cursor-glow"></div>
 
-  <!-- ===================== SIDEBAR ===================== -->
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <span class="brand-icon">🐠</span>
-      <div>
-        <h1>CyberSafe U</h1>
-        <p>Cybersecurity Awareness</p>
+  <!-- ===================== TOP NAVIGATION ===================== -->
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="sidebar-brand">
+        <span class="brand-icon"><img src="octopus-logo.png" alt="Matao octopus logo"></span>
+        <div>
+          <h1>SuperMatao</h1>
+          <p>Cybersecurity Intelligence · Obrero Campus</p>
+        </div>
+      </div>
+      <div class="header-tools">
+        <span class="header-status"><span class="status-pulse"></span> SYSTEM ONLINE</span>
+        <button class="logout-button" id="logout-button" type="button">↗ Log Out</button>
       </div>
     </div>
 
-    <nav class="sidebar-nav">
-      <button class="nav-link active" data-page="dashboard">🏠 Dashboard</button>
-      <button class="nav-link" data-page="tests">📝 Survey Tests</button>
-      <button class="nav-link" data-page="results">📊 Survey Results</button>
-      <button class="nav-link" data-page="students">👩‍🎓 Student Records</button>
-      <button class="nav-link" data-page="analytics">📈 Analytics &amp; Reports</button>
-      <button class="nav-link" data-page="logs">🕒 Activity Logs</button>
-      <button class="nav-link" data-page="map">🗺️ Campus Map</button>
-      <button class="nav-link" data-page="settings">⚙️ Settings</button>
+    <nav class="top-navigation" aria-label="Dashboard navigation">
+      <div class="primary-nav">
+        <button class="nav-link active" data-page="dashboard" aria-current="page">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="nav-home-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff5fb"/><stop offset=".45" stop-color="#ff9bc9"/><stop offset="1" stop-color="#df378f"/></linearGradient></defs>
+            <rect x="3.5" y="4" width="25" height="24" rx="6" fill="#fff4fa" stroke="#ec9ac1" stroke-width="1.2"/>
+            <path d="M5 9h22" stroke="#e9a1c4" stroke-width="1.2"/>
+            <circle cx="8" cy="6.6" r="1" fill="#ed5ba4"/><circle cx="11.5" cy="6.6" r="1" fill="#f3a5cb"/>
+            <rect x="7" y="12" width="7" height="5.5" rx="1.6" fill="url(#nav-home-gradient)"/>
+            <rect x="17" y="12" width="8" height="3" rx="1.2" fill="#f7c5df"/>
+            <rect x="17" y="16.5" width="8" height="7.5" rx="1.5" fill="#e9f8ff" stroke="#e78bb8" stroke-width=".8"/>
+            <path d="M19 22v-2l1.5-1.6 1.4 1 1.8-2" fill="none" stroke="#dc4f9c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 21h7v3H7z" fill="#f4a8cc"/>
+            <path d="M8 13h4v.8H8zM8 14.8h3v.8H8z" fill="#fff" opacity=".9"/>
+          </svg>
+          <span>Dashboard Home</span>
+        </button>
+        <button class="nav-link" data-page="tests">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="nav-tests-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7fb"/><stop offset=".5" stop-color="#ffaad0"/><stop offset="1" stop-color="#d94393"/></linearGradient></defs>
+            <rect x="6" y="5" width="21" height="24" rx="3.5" fill="#ed9ec5" opacity=".55"/>
+            <rect x="4" y="4" width="21" height="24" rx="3.5" fill="url(#nav-tests-gradient)" stroke="#d64a91" stroke-width="1.2"/>
+            <rect x="11" y="2.5" width="8" height="5" rx="2" fill="#fff5fa" stroke="#d94a91" stroke-width="1.2"/>
+            <path d="m8 12 1.2 1.2 2-2.2M14 12h7M8 17.5l1.2 1.2 2-2.2M14 17.5h7M8 23l1.2 1.2 2-2.2M14 23h7" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 12h6M14 17.5h5M14 23h4" stroke="#a63b76" stroke-width=".75" stroke-linecap="round" opacity=".72"/>
+          </svg>
+          <span>Survey Tests</span>
+        </button>
+        <button class="nav-link" data-page="results">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="nav-results-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8fc"/><stop offset=".48" stop-color="#ffa5cf"/><stop offset="1" stop-color="#d9368d"/></linearGradient></defs>
+            <circle cx="15" cy="17" r="12" fill="#f5c5df" opacity=".8"/>
+            <path d="M14 4.8A12 12 0 1 0 27 17H14z" fill="url(#nav-results-gradient)" stroke="#d84491" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M17 3.8v10.5h10.2A12 12 0 0 0 17 3.8z" fill="#fff8fc" stroke="#e78ab8" stroke-width="1.1" stroke-linejoin="round"/>
+            <path d="m17 14.3 7.3-7.2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="13.8" cy="17.3" r="2" fill="#fff" opacity=".85"/>
+          </svg>
+          <span>Survey Result</span>
+        </button>
+        <button class="nav-link" data-page="students">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="nav-students-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7fb"/><stop offset=".5" stop-color="#ffadd1"/><stop offset="1" stop-color="#d94494"/></linearGradient></defs>
+            <rect x="3.5" y="5" width="25" height="23" rx="5" fill="#fff5fa" stroke="#e892ba" stroke-width="1.1"/>
+            <circle cx="12" cy="13" r="4" fill="url(#nav-students-gradient)" stroke="#d84691" stroke-width=".8"/>
+            <path d="M5.5 24c.5-4 2.8-6 6.5-6s6 2 6.5 6" fill="url(#nav-students-gradient)" stroke="#d84691" stroke-width=".9" stroke-linejoin="round"/>
+            <circle cx="22" cy="13.5" r="3" fill="#f7c4df" stroke="#e37eaf" stroke-width=".8"/>
+            <path d="M19 23c.3-2.5 1.8-4 4.2-4 2.1 0 3.5 1 4.1 3" fill="none" stroke="#df6ba5" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M9.8 11.6c.8-1 2.3-1.1 3.3-.2" fill="none" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+          <span>Students Record</span>
+        </button>
+        <button class="nav-link" data-page="analytics">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="nav-analytics-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6fb"/><stop offset=".45" stop-color="#ff9dcc"/><stop offset="1" stop-color="#d8348a"/></linearGradient></defs>
+            <path d="M5 26V7" stroke="#d675a5" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M5 26h23" stroke="#d675a5" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="8" y="18" width="4.3" height="8" rx="1.2" fill="#f6c0dc"/>
+            <rect x="15" y="13" width="4.3" height="13" rx="1.2" fill="url(#nav-analytics-gradient)"/>
+            <rect x="22" y="8" width="4.3" height="18" rx="1.2" fill="#e65aa2"/>
+            <path d="m7.5 15 6-4.5 4.3 2 8-7" fill="none" stroke="#bb3179" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="m22.7 5.5 3.5-.3-.6 3.4" fill="none" stroke="#bb3179" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 14v10M23 9v15" stroke="#fff" stroke-width=".8" opacity=".65"/>
+          </svg>
+          <span>Analytic Report</span>
+        </button>
+        <button class="nav-link" data-page="logs">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="nav-logs-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7fc"/><stop offset=".5" stop-color="#ffa5cf"/><stop offset="1" stop-color="#d83a8e"/></linearGradient></defs>
+            <rect x="5" y="4.5" width="19" height="24" rx="3.3" fill="url(#nav-logs-gradient)" stroke="#d64991" stroke-width="1.1"/>
+            <rect x="10" y="2.5" width="9" height="5" rx="2" fill="#fff5fa" stroke="#d64991" stroke-width="1"/>
+            <path d="M9 12h8M9 16h6M9 20h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="23" cy="22" r="6.3" fill="#fff8fc" stroke="#d84290" stroke-width="1.3"/>
+            <path d="M23 18.5V22l2.4 1.4" fill="none" stroke="#cb397f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22.8 16.4v1M27.5 22h-1" stroke="#f188b8" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          <span>Activity Logs</span>
+        </button>
+        <button class="nav-link" data-page="map">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="nav-map-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6fb"/><stop offset=".5" stop-color="#ffabd1"/><stop offset="1" stop-color="#d94391"/></linearGradient></defs>
+            <path d="m4 8 7-3 9 3 8-3v20l-8 3-9-3-7 3z" fill="url(#nav-map-gradient)" stroke="#d84691" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M11 5v20M20 8v20" stroke="#fff" stroke-width="1.3" opacity=".9"/>
+            <path d="M6.5 21c3-1.8 4 .3 6.5-.8s3.2-4.7 6.5-4.7 3.2 2.6 6.5.5" fill="none" stroke="#aa3975" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="1.3 1.7"/>
+            <path d="M21.5 9a3.7 3.7 0 0 1 7.4 0c0 2.7-3.7 6.5-3.7 6.5S21.5 11.7 21.5 9z" fill="#fff7fb" stroke="#c93b83" stroke-width="1.1"/>
+            <circle cx="25.2" cy="9" r="1.2" fill="#e34d9a"/>
+          </svg>
+          <span>Campus Map</span>
+        </button>
+        <button class="nav-link" data-page="settings">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="nav-settings-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7fb"/><stop offset=".45" stop-color="#ffa1cd"/><stop offset="1" stop-color="#d6388c"/></linearGradient></defs>
+            <path d="m13 3 6 0 1 3.4 2.1 1.2 3.2-1.2 3 5.2-2.4 2.5v2.4l2.4 2.5-3 5.2-3.2-1.2-2.1 1.2-1 3.4h-6l-1-3.4-2.1-1.2-3.2 1.2-3-5.2 2.4-2.5v-2.4l-2.4-2.5 3-5.2 3.2 1.2L12 6.4z" fill="url(#nav-settings-gradient)" stroke="#d4428d" stroke-width="1" stroke-linejoin="round"/>
+            <circle cx="16" cy="16" r="6.5" fill="#fff8fc" stroke="#c83b82" stroke-width="1.2"/>
+            <circle cx="16" cy="16" r="3.1" fill="#f1a0c6"/>
+            <path d="M13.5 12.5c1.4-1.2 3.7-1.4 5.1-.2" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <span>Settings</span>
+        </button>
+        <button class="nav-link" data-page="feeding">
+          <img class="nav-icon feeding-mascot-icon" src="feeding-mascot.png" alt="" aria-hidden="true">
+          <span>Feeding Matao</span>
+        </button>
+        <button class="nav-link" data-page="recommendations">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="nav-recommendations-gradient" x1="7" y1="5" x2="25" y2="27" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#fff9fc"/>
+                <stop offset=".48" stop-color="#ffadd2"/>
+                <stop offset="1" stop-color="#dc398d"/>
+              </linearGradient>
+              <linearGradient id="nav-recommendations-base" x1="12" y1="23" x2="21" y2="29" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ffeaf4"/>
+                <stop offset="1" stop-color="#e557a0"/>
+              </linearGradient>
+            </defs>
+            <path d="M16 3.5a9 9 0 0 0-5.3 16.3c1.2.9 1.8 2.1 1.9 3.7h6.8c.1-1.6.7-2.8 1.9-3.7A9 9 0 0 0 16 3.5Z"
+                  fill="url(#nav-recommendations-gradient)" stroke="#ca397e" stroke-width="1.2"/>
+            <path d="M11.5 10.7c.4-2.7 2.3-4.6 4.7-4.9" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" opacity=".92"/>
+            <path d="M13.2 21.2c-.3-1.1-.9-2-1.9-2.9a7 7 0 0 1-2.4-5.1" fill="none" stroke="#f8d2e4" stroke-width="1" opacity=".8"/>
+            <rect x="12.4" y="24" width="7.2" height="2.1" rx="1" fill="url(#nav-recommendations-base)" stroke="#c63a7e" stroke-width="1"/>
+            <path d="M13.2 27.1h5.6" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M14 29h4" stroke="#d33f87" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M16 1v1.4M5.2 7.1l1.2.7M26.8 7.1l-1.2.7M4 16h1.7M26.3 16H28"
+                  fill="none" stroke="#e6539d" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="m25.8 19 .8 1.7 1.8.7-1.8.7-.8 1.7-.7-1.7-1.8-.7 1.8-.7z"
+                  fill="#fff7fb" stroke="#e6539d" stroke-width=".7" stroke-linejoin="round"/>
+            <circle cx="7.5" cy="21" r="1" fill="#ffc5df"/>
+          </svg>
+          <span>Recommendations</span>
+        </button>
+        <button class="nav-link" data-page="proposal" aria-label="Revised Project Proposal">
+          <svg class="nav-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M8 4h11l6 6v18H8z" fill="#fff5fa" stroke="#d84691" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M19 4v7h6M12 16h9M12 20h9M12 24h6" fill="none" stroke="#c63b82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 8h4" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span>REVISED PROJECT PROPOSAL</span>
+        </button>
+      </div>
+      <div class="office-navigation">
+        <p class="nav-title"><span>UNIVERSITY OFFICES &amp; COLLEGES</span><span class="office-hint">UNIT DASHBOARDS</span></p>
+        <div class="office-nav" aria-label="University offices and colleges">
+          <button class="nav-link" data-office="CIC" title="College of Information and Computing">CIC <span>Information &amp; Computing</span></button>
+          <button class="nav-link" data-office="COE" title="College of Engineering">COE <span>Engineering</span></button>
+          <button class="nav-link" data-office="CED" title="College of Education">CED <span>Education</span></button>
+          <button class="nav-link" data-office="CAS" title="College of Arts and Sciences">CAS <span>Arts &amp; Sciences</span></button>
+          <button class="nav-link" data-office="CBA" title="College of Business Administration">CBA <span>Business</span></button>
+          <button class="nav-link" data-office="REG" title="Registrar · No Data">REG <span>Registrar · No Data</span></button>
+          <button class="nav-link" data-office="FIN" title="Finance and Accounting · No Data">FIN <span>Finance · No Data</span></button>
+          <button class="nav-link" data-office="HRM" title="Human Resource Management · No Data">HRM <span>Human Resources · No Data</span></button>
+        </div>
+      </div>
     </nav>
-
-    <p class="nav-title">UNIVERSITY OFFICES &amp; COLLEGES</p>
-    <nav class="sidebar-nav office-nav">
-      <button class="nav-link" data-office="CIC">CIC - College of Information and Computing</button>
-      <button class="nav-link" data-office="COE">COE - College of Engineering</button>
-      <button class="nav-link" data-office="CED">CED - College of Education</button>
-      <button class="nav-link" data-office="CAS">CAS - College of Arts and Sciences</button>
-      <button class="nav-link" data-office="CBA">CBA - College of Business Administration</button>
-      <button class="nav-link" data-office="REG">REG - Registrar</button>
-      <button class="nav-link" data-office="FIN">FIN - Finance and Accounting</button>
-      <button class="nav-link" data-office="HRM">HRM - Human Resource Management</button>
-    </nav>
-
-    <div class="sidebar-bottom">
-      <button class="nav-link" id="logout-button">🚪 Log Out</button>
-      <p class="sidebar-university">University of Southeastern Philippines</p>
-      <p class="sidebar-campus">Obrero Campus</p>
-    </div>
-  </aside>
+  </header>
 
   <!-- ===================== MAIN AREA ===================== -->
   <main class="main-area">
@@ -61,11 +192,11 @@
     <!-- Top header -->
     <header class="topbar">
       <div>
-        <h2>CyberSafe U</h2>
+        <h2>SuperMatao</h2>
         <p>Cybersecurity Awareness Among Students</p>
       </div>
       <div class="topbar-right">
-        <span class="badge badge-simulated">SIMULATED DATA</span>
+        <span class="badge badge-data">SUPPLIED SURVEY RESPONSES</span>
         <span class="topbar-date" id="current-date"></span>
         <div class="profile">
           <span class="profile-avatar">A</span>
@@ -79,65 +210,168 @@
 
       <div class="welcome-banner card">
         <div>
-          <h3>Welcome to CyberSafe U 🐠</h3>
+          <h3>Welcome to CyberSafe U</h3>
           <p>
-            A cybersecurity awareness dashboard for USeP Obrero Campus. It studies the answers of
-            <span class="total-participants"></span> simulated participants from 8 university
-            offices and colleges to find which cybersecurity topic needs the most attention.
+            A response-level cybersecurity awareness dashboard for USeP Obrero Campus.
+            Explore the supplied student answers, college distributions, and self-reported practices.
           </p>
           <div class="button-row">
             <button class="btn" data-goto="analytics">View Analytics</button>
             <button class="btn btn-light" data-goto="tests">Explore Survey Tests</button>
           </div>
         </div>
-        <span class="badge badge-simulated">SIMULATED DATA</span>
+        <span class="badge badge-data">RESPONSE DATA · SCORES NOT PROVIDED</span>
       </div>
 
       <div class="summary-grid" id="dashboard-cards"></div>
 
       <div class="two-columns">
         <div class="card">
-          <h3>Cybersecurity Survey Tests Overview</h3>
-          <div id="dashboard-tests"></div>
+          <div class="chart-heading">
+            <div>
+              <h3>Student Distribution by College</h3>
+              <p class="small-text">Counts include every complete submitted response.</p>
+            </div>
+          </div>
+          <div id="college-count-chart"></div>
         </div>
         <div class="card">
-          <h3>Topic Performance Comparison</h3>
-          <p class="small-text">The four original proposal topics (correct answer %)</p>
-          <div id="dashboard-topic-chart"></div>
+          <h3>Respondent Share by College</h3>
+          <div id="college-share-chart"></div>
         </div>
       </div>
 
       <div class="two-columns">
         <div class="card">
-          <h3>Performance Summary</h3>
-          <div id="dashboard-summary"></div>
+          <div class="chart-heading">
+            <div>
+              <h3>Self-Reported Awareness &amp; Practices</h3>
+              <p class="small-text">Descriptive signals only; these are not scored answers.</p>
+            </div>
+            <label class="chart-filter">College
+              <select id="dashboard-college-filter">
+                <option value="all">All colleges</option>
+              </select>
+            </label>
+          </div>
+          <div id="dashboard-indicators"></div>
         </div>
-        <div class="card" id="recent-activities-card">
-          <h3>Recent Activities</h3>
-          <ul class="activity-list" id="dashboard-activities"></ul>
-          <button class="btn btn-light" data-goto="logs">View All Activity Logs</button>
+        <div class="card">
+          <div class="chart-heading">
+            <div>
+              <h3>Response Pattern by Question</h3>
+              <p class="small-text">Actual answer counts for the selected survey question.</p>
+            </div>
+            <label class="chart-filter">Survey question
+              <select id="dashboard-question-filter"></select>
+            </label>
+          </div>
+          <div id="dashboard-answer-chart"></div>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Quick Access</h3>
-        <div class="quick-grid">
-          <button class="quick-button" data-goto="results">📊 Survey Results</button>
-          <button class="quick-button" data-goto="students">👩‍🎓 Student Records</button>
-          <button class="quick-button" data-goto="analytics">📈 Analytics &amp; Reports</button>
-          <button class="quick-button" data-goto="recommendations">💡 Recommendations</button>
-          <button class="quick-button" data-goto="map">🗺️ Campus Map</button>
-          <button class="quick-button" data-goto="settings">⚙️ Settings</button>
-        </div>
+      <div class="card" id="recent-activities-card">
+        <h3>Dataset Validation &amp; Scoring Notes</h3>
+        <div id="dashboard-validation"></div>
       </div>
+
+    </section>
+
+    <!-- ===================== PROJECT PROPOSAL ===================== -->
+    <section id="page-proposal" class="page">
+      <div class="page-title">
+        <h3>Revised Project Proposal</h3>
+        <p>SuperMatao · Cybersecurity Awareness Among Students of USeP Obrero Campus</p>
+      </div>
+
+      <div class="card proposal-note">
+        <strong>Dataset note:</strong> This proposal describes a planned simulated dataset of 30 students.
+        The dashboard's current charts use the separately supplied response workbooks; the planned dataset
+        and live dashboard records are not combined.
+      </div>
+
+      <div class="two-columns">
+        <article class="card proposal-card">
+          <h3>Project Team</h3>
+          <p><strong>Group name:</strong> SuperMatao</p>
+          <ol>
+            <li>Ian, Arecto</li>
+            <li>John, Basco</li>
+            <li>Mohammad, Matao</li>
+            <li>Racho, Wesley B.</li>
+          </ol>
+        </article>
+        <article class="card proposal-card">
+          <h3>Project Overview</h3>
+          <p><strong>Project title:</strong> Cybersecurity Awareness Among
+            <a href="https://uve.usep.edu.ph/mod/resource/view.php?id=116929" target="_blank" rel="noopener noreferrer">Students</a>
+            of USeP Obrero Campus</p>
+          <p><strong>Information security domain:</strong> Security Awareness</p>
+        </article>
+      </div>
+
+      <article class="card proposal-card">
+        <h3>Information Security Problem</h3>
+        <p>This project aims to assess the cybersecurity awareness of
+          <a href="https://uve.usep.edu.ph/mod/resource/view.php?id=116929" target="_blank" rel="noopener noreferrer">students</a>
+          at the University of Southeastern Philippines (USeP) Obrero Campus. It will examine their
+          knowledge of online threats and security practices, such as phishing, password security,
+          online scams, and two-factor authentication. The results will help determine how well students
+          understand these cybersecurity topics.</p>
+      </article>
+
+      <div class="two-columns">
+        <article class="card proposal-card">
+          <h3>Dataset &amp; Variables</h3>
+          <p>The project will use a simulated dataset containing answers from 30 USeP Obrero Campus students
+            to cybersecurity awareness questions covering phishing, password security, online scams, and
+            two-factor authentication.</p>
+          <p><strong>Variables:</strong> Student ID, cybersecurity topic, question, and answer correctness
+            (correct or incorrect).</p>
+        </article>
+        <article class="card proposal-card">
+          <h3>Research Question</h3>
+          <p>Which cybersecurity topic has the lowest percentage of correct answers among
+            <a href="https://uve.usep.edu.ph/mod/resource/view.php?id=116929" target="_blank" rel="noopener noreferrer">students</a>
+            of USeP Obrero Campus?</p>
+        </article>
+      </div>
+
+      <article class="card proposal-card">
+        <h3>Statistical Plan</h3>
+        <p>Frequency counts and percentages will show how many students answered correctly and incorrectly
+          in each topic. A bar chart will compare topic results and identify which topic has the lowest
+          percentage of correct answers.</p>
+      </article>
+
+      <article class="card proposal-card">
+        <h3>Dashboard Plan</h3>
+        <p>The website dashboard will present and analyze cybersecurity awareness test results for USeP
+          Obrero Campus students. It will summarize the number of students, correct and incorrect answers,
+          and quiz scores. Topic performance comparisons, correct/incorrect distributions, question analysis,
+          student performance, topic rankings, knowledge gaps, recommendations, dataset records, and project
+          methods will be presented with charts and tables.</p>
+      </article>
+
+      <article class="card proposal-card">
+        <h3>Recommendations</h3>
+        <p>Based on test results, the project will recommend additional lessons, practical activities, and
+          awareness campaigns focused on topics with the lowest percentages of correct answers. These
+          recommendations will help students improve their knowledge of phishing, password security,
+          online scams, and two-factor authentication.</p>
+      </article>
+
+      <article class="card proposal-card">
+        <h3>Technology Stack</h3>
+        <p>HTML, CSS, and JavaScript for building the website dashboard.</p>
+      </article>
     </section>
 
     <!-- ===================== 2. SURVEY TESTS ===================== -->
     <section id="page-tests" class="page">
       <div class="page-title">
         <h3>Survey Tests</h3>
-        <p>10 cybersecurity survey modules. The four tests marked <strong>Proposal Topic</strong>
-           are the main research topics. The other six are supplementary tests.</p>
+        <p>Optional practice tests are separate from the eight-question survey responses and are not included in respondent statistics.</p>
       </div>
       <div class="tests-grid" id="tests-grid"></div>
     </section>
@@ -146,21 +380,19 @@
     <section id="page-results" class="page">
       <div class="page-title">
         <h3>Survey Results</h3>
-        <p class="simulated-note">SIMULATED DATA - not actual student responses.</p>
+        <p class="data-note">Response distributions are calculated from the supplied answers. Correctness is not inferred without an answer key.</p>
       </div>
 
       <div class="filter-bar card">
-        <label>Survey Test
+        <label>Survey Question
           <select id="filter-test"></select>
         </label>
-        <label>College / Office
+        <label>College
           <select id="filter-unit"></select>
         </label>
-        <label>Survey Status
+        <label>Response Source
           <select id="filter-status">
-            <option value="all">All Statuses</option>
-            <option value="proposal">Original Proposal Topics</option>
-            <option value="supplementary">Supplementary Tests</option>
+            <option value="all">All sources</option>
           </select>
         </label>
         <button class="btn btn-light" id="reset-filters">Reset Filters</button>
@@ -169,23 +401,23 @@
 
       <div class="two-columns">
         <div class="card">
-          <h3>A. Correct Answer Percentage by Test</h3>
+          <h3>A. Answer Distribution</h3>
           <div id="results-bar-chart"></div>
         </div>
         <div class="card">
-          <h3>B. Correct vs Incorrect</h3>
+          <h3>B. Response Share</h3>
           <div id="results-doughnut"></div>
         </div>
       </div>
 
       <div class="card">
-        <h3>C. Topic Performance Summary</h3>
+        <h3>C. Response Summary by Question</h3>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>No.</th><th>Survey Test</th><th>Total Answers</th><th>Correct</th>
-                <th>Incorrect</th><th>Correct %</th><th>Incorrect %</th>
+                <th>No.</th><th>Survey Question</th><th>Responses</th><th>Most Common Answer</th>
+                <th>Count</th><th>Share</th>
               </tr>
             </thead>
             <tbody id="results-table-body"></tbody>
@@ -195,15 +427,15 @@
 
       <div class="two-columns">
         <div class="card lowest-card">
-          <h3>D. Lowest Performing Topic</h3>
+          <h3>D. Scoring Availability</h3>
           <div id="results-lowest"></div>
         </div>
         <div class="card">
-          <h3>E. Questions with Most Incorrect Answers</h3>
+          <h3>E. Response Pattern Details</h3>
           <div class="table-wrap">
             <table>
               <thead>
-                <tr><th>Question ID</th><th>Survey Test</th><th>Question</th><th>% Incorrect</th></tr>
+                <tr><th>Question</th><th>Answer option</th><th>Responses</th><th>Share</th></tr>
               </thead>
               <tbody id="results-questions-body"></tbody>
             </table>
@@ -216,12 +448,14 @@
     <section id="page-students" class="page">
       <div class="page-title">
         <h3>Student Records</h3>
-        <p class="simulated-note">SIMULATED DATA - anonymous IDs only, no real students.</p>
+        <p class="data-note">Search and filter the supplied student responses. Answers are preserved verbatim; scoring is unavailable without a rubric.</p>
       </div>
 
       <!-- A. Student records -->
       <div class="card">
-        <h3>A. Student Records (<span class="total-participants"></span> participants)</h3>
+        <h3>A. Student Records (<span id="student-response-total"></span> submissions)</h3>
+        <div id="student-aggregate-summary"></div>
+        <p class="small-text" id="student-data-note"></p>
         <div class="filter-row">
           <input type="text" id="student-search" placeholder="Search by Student ID (example: 2026-01245)">
           <select id="student-unit"></select>
@@ -238,13 +472,10 @@
               <tr>
                 <th data-table="students" data-sort="studentId">Student ID</th>
                 <th data-table="students" data-sort="unit">College / Office</th>
-                <th data-table="students" data-sort="totalTests">Total Tests</th>
-                <th data-table="students" data-sort="correct">Total Correct Answers</th>
-                <th data-table="students" data-sort="incorrect">Total Incorrect Answers</th>
-                <th data-table="students" data-sort="correct">Overall Score</th>
-                <th data-table="students" data-sort="percent">Percentage Score</th>
-                <th data-table="students" data-sort="status">Status</th>
-                <th>Details</th>
+                <th>Q1 · Cybersecurity</th><th>Q2 · Phishing</th><th>Q3 · Passwords</th><th>Q4 · 2FA</th>
+                <th>Q5 · Scams</th><th>Q6 · Link checks</th><th>Q7 · Suspicious messages</th><th>Q8 · Safety source</th>
+                <th>Total Correct</th><th>Total Incorrect</th><th>Total Score</th>
+                <th>Source / Details</th>
               </tr>
             </thead>
             <tbody id="student-table-body"></tbody>
@@ -267,12 +498,11 @@
         <div class="filter-row">
           <input type="text" id="record-search-id" placeholder="Search by Student ID">
           <input type="text" id="record-search-question" placeholder="Search by Question">
+          <input type="text" id="record-search-answer" placeholder="Search answer text">
           <select id="record-unit"></select>
           <select id="record-test"></select>
           <select id="record-result">
-            <option value="all">Correct and Incorrect</option>
-            <option value="Correct">Correct only</option>
-            <option value="Incorrect">Incorrect only</option>
+            <option value="all">All sources</option>
           </select>
           <select id="record-per-page">
             <option value="10">10 per page</option>
@@ -285,15 +515,15 @@
           <table>
             <thead>
               <tr>
-                <th data-table="records" data-sort="recordId">Record ID</th>
+                <th data-table="records" data-sort="recordId">Response Ref</th>
                 <th data-table="records" data-sort="studentId">Student ID</th>
-                <th data-table="records" data-sort="unit">College / Office</th>
-                <th data-table="records" data-sort="testId">Survey Test</th>
-                <th data-table="records" data-sort="questionId">Question ID</th>
+                <th data-table="records" data-sort="unit">College</th>
+                <th data-table="records" data-sort="source">Source</th>
+                <th data-table="records" data-sort="questionId">Question No.</th>
                 <th data-table="records" data-sort="question">Question</th>
-                <th data-table="records" data-sort="result">Answer Correctness</th>
+                <th>Answer</th>
+                <th>Correctness</th>
                 <th data-table="records" data-sort="score">Score</th>
-                <th>Student</th>
               </tr>
             </thead>
             <tbody id="record-table-body"></tbody>
@@ -314,7 +544,7 @@
     <section id="page-analytics" class="page">
       <div class="page-title">
         <h3>Analytics &amp; Reports</h3>
-        <p class="simulated-note">SIMULATED DATA - all numbers come from the same dataset.</p>
+        <p class="data-note">Descriptive analysis of the supplied survey responses. Scores and correct-answer rates require an answer key or coding rubric.</p>
         <div class="button-row no-print">
           <button class="btn" id="print-report">🖨️ Print / Save as PDF</button>
           <button class="btn btn-light" data-goto="recommendations">View Recommendations</button>
@@ -322,41 +552,40 @@
       </div>
 
       <div class="card">
-        <h3>1. Overall Cybersecurity Awareness</h3>
+        <h3>1. Scoring Status &amp; Self-Reported Indicators</h3>
         <div id="an-overall"></div>
       </div>
 
       <div class="two-columns">
         <div class="card">
-          <h3>2. Topic Performance Comparison</h3>
+          <h3>2. Awareness Indicator Comparison</h3>
           <div id="an-topic-chart"></div>
         </div>
         <div class="card">
-          <h3>3. Correct vs Incorrect Distribution</h3>
+          <h3>3. Response Share</h3>
           <div id="an-doughnut"></div>
         </div>
       </div>
 
       <div class="two-columns">
         <div class="card">
-          <h3>4. Student Score Distribution</h3>
-          <p class="small-text">Number of students in each percentage range</p>
+          <h3>4. Unscored Data Coverage</h3>
+            <p class="small-text">Completed answer records are retained; no quiz score is implied.</p>
           <div id="an-distribution"></div>
         </div>
         <div class="card">
-          <h3>5. Average Quiz Scores</h3>
-          <p class="small-text">Average score of a student in each test (out of 10)</p>
+          <h3>5. College Comparison</h3>
           <div id="an-averages"></div>
         </div>
       </div>
 
       <div class="card">
-        <h3>6. Highest and Lowest Scores</h3>
+        <h3>6. Highest- and Lowest-Reported Practice Indicators</h3>
         <div id="an-extremes"></div>
       </div>
 
       <div class="card">
-        <h3>7. Question-Level Analysis</h3>
+        <h3>7. Question-Level Response Patterns</h3>
         <div id="an-questions"></div>
       </div>
 
@@ -365,24 +594,25 @@
           <h3>8. Topic Rankings</h3>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>Rank</th><th>Survey Test</th><th>Type</th><th>Correct %</th></tr></thead>
+              <thead><tr><th>Rank</th><th>Question</th><th>Most common answer</th><th>Count</th></tr></thead>
               <tbody id="an-rankings"></tbody>
             </table>
           </div>
         </div>
         <div class="card">
-          <h3>9. Knowledge Gaps</h3>
+          <h3>9. Topics for Follow-up</h3>
           <div id="an-gaps"></div>
         </div>
       </div>
 
       <div class="card">
-        <h3>10. Performance by College / Office</h3>
+        <h3>10. Responses by College</h3>
+        <p class="small-text">Counts include reported colleges; unreported colleges are shown separately.</p>
         <div class="two-columns">
           <div id="an-units-chart"></div>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>Unit</th><th>Participants</th><th>Correct</th><th>Incorrect</th><th>Correct %</th></tr></thead>
+            <thead><tr><th>College</th><th>Responses</th><th>Phishing awareness · Yes</th><th>2FA · Yes</th><th>Always checks links</th></tr></thead>
               <tbody id="an-units-table"></tbody>
             </table>
           </div>
@@ -390,10 +620,10 @@
       </div>
 
       <div class="card">
-        <h3>11. Statistical Summary</h3>
+        <h3>11. Dataset Summary</h3>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Measure (student percentage scores)</th><th>Value</th></tr></thead>
+            <thead><tr><th>Dataset measure</th><th>Value</th></tr></thead>
             <tbody id="an-stats"></tbody>
           </table>
         </div>
@@ -411,8 +641,9 @@
     <section id="page-logs" class="page">
       <div class="page-title">
         <h3>Activity Logs</h3>
-        <p class="simulated-note">SIMULATED DATA - sample activity records only.</p>
+        <p class="data-note">Survey response totals are shown below; access and completion-event timestamps were not supplied.</p>
       </div>
+      <div class="card" id="log-participation-summary"></div>
       <div class="card">
         <div class="filter-row">
           <input type="text" id="log-search" placeholder="Search activity...">
@@ -439,7 +670,7 @@
     <section id="page-map" class="page">
       <div class="page-title">
         <h3>USeP Obrero Campus Map</h3>
-        <p>Official campus map. Use the zoom buttons or open the full map view.</p>
+        <p>Official campus map. Participating colleges and buildings with No Data are labeled in the directory.</p>
       </div>
 
       <div class="two-columns map-layout">
@@ -496,16 +727,16 @@
               4. Racho, Wesley B.</td></tr>
             <tr><td>Project Title</td><td>Cybersecurity Awareness Among Students of USeP Obrero Campus</td></tr>
             <tr><td>Information Security Domain</td><td>Security Awareness</td></tr>
-            <tr><td>Target Respondents</td><td><span class="total-participants"></span> simulated participants from USeP Obrero Campus (30 per unit)</td></tr>
+            <tr><td>Survey Submissions</td><td>53 complete responses, including two without a reported ID or college</td></tr>
             <tr><td>Main Topics</td><td>Phishing, Password Security, Online Scams (Social Engineering), Two-Factor Authentication</td></tr>
-            <tr><td>Research Question</td><td>Which cybersecurity topic has the lowest percentage of correct answers among students of USeP Obrero Campus?</td></tr>
+            <tr><td>Research Question</td><td>How do students self-report cybersecurity awareness and practices across the eight survey questions?</td></tr>
           </table>
         </div>
 
         <div class="card">
           <h3>Dashboard Preferences</h3>
           <label class="setting-row">
-            <span>Show Recent Activities on the Dashboard</span>
+            <span>Show Survey Data Status on the Dashboard</span>
             <input type="checkbox" id="setting-activities">
           </label>
           <label class="setting-row">
@@ -551,15 +782,86 @@
         </div>
         <div class="card">
           <h3>About the Project</h3>
-          <p>CyberSafe U is a student project about security awareness. It compares how well
-             students answer questions about phishing, password security, online scams and
-             two-factor authentication.</p>
-          <p>The data in this dashboard is <strong>SIMULATED</strong>. The Student IDs are made up
-             and the answers were generated by the program. They are not actual student responses.</p>
-          <p>The six supplementary tests (privacy, malware, social media, behavior, and
-             general knowledge) are extra modules. The main research analysis stays focused on the
-             four original proposal topics.</p>
+          <p>CyberSafe U summarizes 53 complete survey submissions from supplied workbooks. One source tab is explicitly labeled “Simulated Responses.”</p>
+          <p>There are 51 unique reported student IDs across five colleges. Two additional complete submissions have no ID or college and remain included as unassigned records.</p>
+          <p>Response frequencies and self-reported practices are calculated from original answers. Correctness and scores are not inferred without an answer key or coding rubric. The supplemental workbook has no separate interview questions.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== FEEDING MATAO GAME ===================== -->
+    <section id="page-feeding" class="page">
+      <div class="page-title">
+        <h3 class="feeding-page-title">
+          <img class="feeding-title-mascot" src="feeding-mascot.png" alt="" aria-hidden="true">
+          <span>Feeding Matao</span>
+        </h3>
+        <p>Climb the food chain: feed, grow, and survive the reef.</p>
+      </div>
+
+      <div class="card feeding-game-card">
+        <div class="feeding-game-frame">
+          <div class="feeding-game-hud" aria-label="Feeding Matao game status">
+            <button id="feeding-game-menu" class="feeding-hud-menu" type="button">MENU</button>
+            <div class="feeding-hud-score">
+              <span>SCORE</span>
+              <strong id="feeding-game-score">000</strong>
+              <small id="feeding-game-multiplier">x1</small>
+            </div>
+            <div class="feeding-hud-level">
+              <span>REEF <strong id="feeding-game-level">01</strong></span>
+              <div class="feeding-level-track" id="feeding-game-level-track"
+                   role="progressbar" aria-label="Reef progress"
+                   aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+                <div id="feeding-game-level-fill"></div>
+              </div>
+              <small id="feeding-game-lives" aria-label="3 lives">♥ ♥ ♥</small>
+            </div>
+            <div class="feeding-hud-growth">
+              <span>GROWTH</span>
+              <div class="feeding-game-progress-track" id="feeding-game-growth"
+                   role="progressbar" aria-label="Growth"
+                   aria-valuemin="20" aria-valuemax="42" aria-valuenow="20">
+                <div id="feeding-game-growth-fill"></div>
+              </div>
+              <small id="feeding-game-size">20 / 42</small>
+            </div>
+            <div class="feeding-hud-ability">
+              <span>ABILITY</span>
+              <div class="feeding-ability-track">
+                <div id="feeding-game-ability-fill"></div>
+              </div>
+              <div class="feeding-ability-icons" aria-hidden="true">
+                <span id="feeding-game-ability-active">⚡</span>
+                <span>BOOST</span>
+              </div>
+            </div>
+            <button class="feeding-hud-action" id="feeding-game-start" type="button">START</button>
+          </div>
+          <canvas id="feeding-game-canvas" tabindex="0"
+                  aria-label="Feeding Matao game. Move your fish to eat smaller fish and avoid larger fish.">
+            Your browser does not support the canvas element.
+          </canvas>
+          <div class="feeding-game-overlay" id="feeding-game-overlay" aria-live="polite">
+            <div class="feeding-overlay-panel">
+              <img class="feeding-overlay-mascot" src="feeding-mascot.png" alt="" aria-hidden="true">
+              <span class="feeding-overlay-kicker" id="feeding-overlay-kicker">REEF 01 · THE SHALLOWS</span>
+              <h4 id="feeding-overlay-title">Ready to feed?</h4>
+              <p id="feeding-overlay-copy">Eat smaller fish to grow. Watch for predators, chain quick meals for a frenzy, and collect glowing reef stars.</p>
+              <button class="feeding-overlay-button" id="feeding-game-overlay-start" type="button">START FEEDING</button>
+            </div>
+          </div>
+        </div>
+        <p class="feeding-game-status" id="feeding-game-status" role="status" aria-live="polite">
+          Steer with your mouse, touch, or arrow keys / WASD. Press Space or Boost to dash away from danger.
+        </p>
+        <div class="feeding-touchbar">
+          <span>SPACE / BOOST charges as you feed</span>
+          <button class="feeding-touch-boost" id="feeding-game-boost-touch" type="button">⚡ BOOST</button>
+        </div>
+        <p class="small-text feeding-game-help">
+          Tip: click or tap the aquarium to steer. MENU returns to the reef screen; the game pauses when you leave this page.
+        </p>
       </div>
     </section>
 
@@ -567,7 +869,7 @@
     <section id="page-recommendations" class="page">
       <div class="page-title">
         <h3>Recommendations</h3>
-        <p class="simulated-note">Based on the SIMULATED results. They update when you change the filter.</p>
+        <p class="data-note">General learning suggestions; this dataset does not contain a scoring rubric for ranking knowledge gaps.</p>
       </div>
 
       <div class="filter-bar card">
@@ -579,11 +881,11 @@
 
       <div class="two-columns">
         <div class="card">
-          <h3>Lowest-Performing Cybersecurity Topics</h3>
+          <h3>Protective Practices to Reinforce</h3>
           <div id="rec-lowest"></div>
         </div>
         <div class="card">
-          <h3>Topics with the Highest Incorrect-Answer Rates</h3>
+          <h3>How to Interpret These Results</h3>
           <div id="rec-incorrect"></div>
         </div>
       </div>
@@ -609,7 +911,7 @@
       <div class="page-title">
         <h3 id="office-title"></h3>
         <p id="office-subtitle"></p>
-        <p class="simulated-note">SIMULATED DATA - 30 simulated participants in this unit.</p>
+        <p class="data-note">College-level response summaries; no correct/incorrect score is inferred.</p>
       </div>
 
       <div class="summary-grid" id="office-cards"></div>
@@ -619,7 +921,7 @@
           <h3>Topic Performance in this Unit</h3>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>No.</th><th>Survey Test</th><th>Correct</th><th>Incorrect</th><th>Correct %</th></tr></thead>
+              <thead><tr><th>Question</th><th>Most common answer</th><th>Count</th><th>Share</th></tr></thead>
               <tbody id="office-topic-body"></tbody>
             </table>
           </div>
@@ -628,7 +930,7 @@
           <h3>Participants in this Unit</h3>
           <div class="table-wrap tall-table">
             <table>
-              <thead><tr><th>Student ID</th><th>Score</th><th>%</th><th>Status</th><th>Details</th></tr></thead>
+              <thead><tr><th>Student ID</th><th>Source</th><th>Scoring</th><th>Details</th></tr></thead>
               <tbody id="office-student-body"></tbody>
             </table>
           </div>
@@ -656,6 +958,8 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="survey-responses.js"></script>
+  <script src="matao.js"></script>
 </body>
 </html>
+
